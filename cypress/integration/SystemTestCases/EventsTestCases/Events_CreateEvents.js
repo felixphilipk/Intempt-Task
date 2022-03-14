@@ -24,14 +24,14 @@ describe('EventsDisplayDropDown',()=>{
 
     })
 
-    xit('Login',function(){ 
+    it('Login',function(){ 
     login.navigate() 
     login.Credentials(this.data.email,this.data.password)
     
    })
    
 
-    xit('HomePage',function(){
+    it('HomePage',function(){
 
         login.navigate() 
         login.Credentials(this.data.email,this.data.password)
@@ -39,7 +39,7 @@ describe('EventsDisplayDropDown',()=>{
     
      })
 
-    xit('EventsMajorTab',function(){
+    it('EventsMajorTab',function(){
 
         login.navigate() 
         login.Credentials(this.data.email,this.data.password)
@@ -61,7 +61,7 @@ describe('EventsDisplayDropDown',()=>{
        
     })
 
-    xit("displayDropdownEvents",function(){
+    it("displayDropdownEvents",function(){
         login.navigate() 
         login.Credentials(this.data.email,this.data.password)
         home.organisationSelect()
