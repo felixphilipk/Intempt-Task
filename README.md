@@ -10,4 +10,4 @@
 4)Install mocha with the "command npm i mocha" on the terminal 
 
 
-5)Run the test with the command "npx cypress open" to view the run visually or run the "command npx cypress run"
+5)Run the test with the command "npx cypress open" to view the run visually or run the command "npx cypress run"
