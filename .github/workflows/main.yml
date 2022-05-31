@@ -34,8 +34,27 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-          
+
       - name: "triger repo"
         run: |
            curl -XPOST -u "${{ secrets.PAT_USERNAME}}:${{secrets.PAT_TOKEN}}" -H "Accept: application/vnd.github.everest-preview+json" -H "Content-Type: application/json" https://api.github.com/repos/felixphilipk/Test-Api-Intempt/dispatches --data '{"event_type": "build_application"}'    
-   
+
+  
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+     - run: |
+         curl -u "${{ secrets.PAT_USERNAME}}:${{secrets.PAT_TOKEN}}" \
+           -H "Accept: application/vnd.github.everest-preview+json" \
+           -H "Content-Type: application/json" \
+           https://api.github.com/repos/felixphilipk/Test-Api-Intempt/actions/workflows/test.yml/dispatches \
+           --data '{"ref": "master"}'
+      - uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.PAT_TOKEN }}
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+            owner: 'felixphilipk',
+            repo: 'Test-Api-Intempt',
+            workflow_id: 'test.yml',
+            ref: 'master' })
