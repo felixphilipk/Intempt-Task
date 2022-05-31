@@ -39,9 +39,9 @@ jobs:
         with:
           owner: felixphilipk
           repo: Test-Api-Intempt
-          github_token: ${{ secrets.PAT_TOKEN }}
+          github_token: ${{ secrets.G_ACCESS_TOKEN }}
           workflow_file_name: test.yml
           trigger_workflow: true
           github_user: felixphilipk
-          
+
         
