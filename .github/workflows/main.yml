@@ -42,10 +42,11 @@ jobs:
       - name: Deploy Stage
         uses: actions/github-script@v5
         with:
+          github-token: ${{ secrets.PAT_TOKEN }}
           script: |
             await github.rest.actions.createWorkflowDispatch({
-            'felixphilipk',
-            'fdroidrepo',
-            'workflows/test.yaml',
-            'main',
+            owner:'felixphilipk',
+            repo:'fdroidrepo',
+            workflow_id:'workflows/test.yaml',
+            ref:'main',
             });
